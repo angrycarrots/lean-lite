@@ -1,6 +1,38 @@
-# a hack to enable backtest processing of generated option data
 
+#####################################################################################
+#
+# QuantConnect Lean hack to enable backtesting against an installed version of Lean
+# instead of docker.  
+#
+# The motivation: 1) lean-cli option data generation is broken, 2) generated data
+# are not readable with the docker framework, 3) a way to debug Lean to get a better
+# understanding how it works.
+#
+# Author: athanas@vastscientific.com
+#
+# Copyright 2022 Michael Athanas, Ph.D.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a 
+# copy of this software and associated documentation files (the "Software"), 
+# to deal in the Software without restriction, including without limitation 
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+# and/or sell copies of the Software, and to permit persons to whom the 
+#  Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included 
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
+# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR 
+# THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#
+#########################################################################################
 
+# Lean Launcher configuration
 core={
 "environment": "backtesting",
   "algorithm-type-name": "BasicTemplateFrameworkAlgorithm",
@@ -492,6 +524,7 @@ core={
   }
 }
 
+# Lean Report configuration
 report_config = {
     "data-folder": "/Lean/Data",
     # "strategy-name": strategy_name or "",
@@ -526,7 +559,9 @@ report_config = {
         }
     }
 }
-
+#################################################################################################
+# main
+#################################################################################################
 
 
 import os
@@ -537,6 +572,8 @@ import re
 import shutil
 from pathlib import Path
 
+# command line arguments
+# FIXME: default values should be in a configuration
 parser = argparse.ArgumentParser("lean runner")
 parser.add_argument('--main',type=str,default='main.py')
 # parser.add_argument('--datadir',type=str,default="s:/PROJECTS/Lean.Github/Data")
@@ -544,10 +581,13 @@ parser.add_argument('--datadir',type=str,default="s:/Data")
 parser.add_argument('--leandir',type=str,default="s:/PROJECTS/Lean.Github/Launcher/bin/Debug")
 parser.add_argument('--leanreportdir',type=str,default="s:/PROJECTS/Lean.Github/Report/bin/Debug")
 args = parser.parse_args()
+
+# useful values
 cwd = os.getcwd()
 lean = "QuantConnect.Lean.Launcher.exe"
 reportexe = "QuantConnect.Report.exe"
 
+# useful methods
 def getclassname(fn):
     """
     returns the name of the first class name in the file
@@ -568,7 +608,7 @@ def getparams(fn):
         d = json.load(f)
     return d
 
-
+# prepare a backtest
 wdir = str(Path(args.main).resolve())
 basedir = str(Path(os.path.dirname(wdir)))
 configfile = str(Path(basedir+"/config.json"))
@@ -593,7 +633,6 @@ cdir = str(Path(config).resolve())
 # run the program
 os.chdir(args.leandir)
 cmd = f"{lean} --config {cdir}"
-print(cmd)
 os.system(cmd)
 # the results are the launcher file
 orderfn = f"{cn}-order-events.json"
@@ -603,8 +642,7 @@ btfolder = str(Path(basedir+"/backtests"))
 if not os.path.exists(btfolder):
   os.mkdir(btfolder)
 
-
-
+# prepare a report
 fdrname = datetime.now().strftime("%Y-%m-%d-%H-%M")
 btfldr = str(Path(btfolder+"/"+fdrname))
 os.mkdir(btfldr)
