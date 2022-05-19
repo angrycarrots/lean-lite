@@ -49,10 +49,6 @@ from config import *
 # FIXME: default values should be in a configuration
 parser = argparse.ArgumentParser("lean runner")
 parser.add_argument('--main',type=str,default='main.py')
-# parser.add_argument('--datadir',type=str,default="s:/PROJECTS/Lean.Github/Data")
-parser.add_argument('--datadir',type=str,default=DATADIR)
-parser.add_argument('--leandir',type=str,default=LEANDIR+"/Launcher/bin/Debug")
-parser.add_argument('--leanreportdir',type=str,default=LEANDIR+"/Report/bin/Debug")
 args = parser.parse_args()
 
 # useful values
@@ -67,77 +63,79 @@ def getclassname(fn):
     """
     with open(fn,"r") as f:
         for line in f:
-        
-            # checking condition for string found or not
             if "class" in line: 
-                # print(line)
                 cn = line.split()[1].split("(")[0]
-                # print(cn)
                 return cn
 
 def getparams(fn):
     with open(fn,"r") as f:
-        # content = f.readlines()
         d = json.load(f)
     return d
+
+print("ENVIRONMENT:")
+print(f"\tDATDIR={DATADIR}")
+print(f"\tLEANDIR={LEANDIR}\n")
 
 # prepare a backtest
 wdir = str(Path(args.main).resolve())
 basedir = str(Path(os.path.dirname(wdir)))
+# the project parameters
 configfile = str(Path(basedir+"/config.json"))
+
+# create results folder
+btfolder = str(Path(basedir+"/backtests"))
+exedir = f"{LEANDIR}/Launcher/bin/debug"
+if not os.path.exists(btfolder):
+  os.mkdir(btfolder)
+# prepare a report folder
+fdrname = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+btfldr = str(Path(btfolder+"/"+fdrname))
+os.mkdir(btfldr)
+# get the class name
 cn = getclassname(args.main)
 configd = getparams(configfile)
+#define the lean backtest config
+config = f"{btfldr}/{cn}_config.json"
+config = str(Path(config).resolve())
 # add the config to the config
-core = {**core,**configd}
-core["algorithm-type-name"]=cn
-core["algorithm-location"]=wdir
-core["data-dir"]=str(Path(args.datadir))
-core["data-directory"]=str(Path(args.datadir))
-core["cache-location"]=str(Path(args.datadir))
-core[ "data-folder"]=str(Path(args.datadir))
-core["close-automatically"]=True
-# core["results-destination-folder"]=wdir
+launcher_template["algorithm-type-name"]=cn
+launcher_template["algorithm-location"]=wdir
+launcher_template["data-directory"]=str(Path(DATADIR))
+launcher_template["cache-location"]=str(Path(DATADIR))
+launcher_template[ "data-folder"]=str(Path(DATADIR))
+launcher_template["close-automatically"]=True
+launcher_template["results-destination-folder"]=btfldr
+launcher_template = {**launcher_template,**configd}
 # write the config
-config = f"{cn}.json"
 with open(config,"w") as outfile:
-    json.dump(core,outfile,indent=4)
+    json.dump(launcher_template,outfile,indent=4)
 
-cdir = str(Path(config).resolve())
 # run the program
-os.chdir(args.leandir)
-cmd = f"{lean} --config {cdir}"
+os.chdir(str(Path(exedir)))
+cmd = f"{lean} --config {config}"
 os.system(cmd)
 # the results are the launcher file
 orderfn = f"{cn}-order-events.json"
 resultfn= f"{cn}.json"
-# create results folder
-btfolder = str(Path(basedir+"/backtests"))
-if not os.path.exists(btfolder):
-  os.mkdir(btfolder)
-
-# prepare a report
-fdrname = datetime.now().strftime("%Y-%m-%d-%H-%M")
-btfldr = str(Path(btfolder+"/"+fdrname))
-os.mkdir(btfldr)
-# copy
-print("copy ",f"{args.leandir}/{orderfn}",f"{btfldr}/orders.json")
-shutil.copy(str(Path(f"{args.leandir}/{resultfn}")),str(Path(f"{btfldr}/results.json")))
-shutil.copy(str(Path(f"{args.leandir}/{orderfn}")),str(Path(f"{btfldr}/orders.json")))
+#copy the code
 shutil.copy(str(Path(f"{wdir}")),str(Path(f"{btfldr}/{os.path.basename(wdir)}")))
+
 # generate a report
-report_config["strategy-name"]=cn
-report_config["strategy-version"]=fdrname
-report_config["strategy-description"]=f"Created {fdrname}"
-report_config["backtest-data-source-file"]=str(Path(f"{btfldr}/results.json"))
-report_config["report-destination"]=str(Path(f"{btfldr}/report.html"))
-report_config["live-data-source-file"]=str(Path(f"{btfldr}/results.json"))
-report_config[ "data-folder"]=str(Path(args.datadir))
+report_template["strategy-name"]=cn
+report_template["strategy-version"]=fdrname
+report_template["strategy-description"]=f"Created {fdrname}"
+report_template["backtest-data-source-file"]=str(Path(f"{btfldr}/{resultfn}"))
+report_template["report-destination"]=str(Path(f"{btfldr}/report.html"))
+report_template["live-data-source-file"]=str(Path(f"{btfldr}/{resultfn}"))
+report_template["data-folder"]=str(Path(DATADIR))
 
-config = f"{args.leanreportdir}/config.json"
+exedir = f"{LEANDIR}/Report/bin/debug"
+# lean requires the configuration file in the exe dir. yep.
+config = f"{exedir}/config.json"
 with open(config,"w") as f:
-  json.dump(report_config,f)
-
-os.chdir(args.leanreportdir)
+  json.dump(report_template,f)
+os.chdir(exedir)
 cmd = f"{reportexe}"
 os.system(cmd)
+
 print("Fini")

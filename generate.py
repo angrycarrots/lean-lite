@@ -32,8 +32,41 @@
 #
 #########################################################################################
 
-# the directory where the generated data resides
-DATADIR="s:/data"
+import os
+import json
+import argparse
+from datetime import datetime
+import re
+import shutil
+from pathlib import Path
+from lib.lean_configurations import *
+from config import *
+import sys
 
-# the directory where lean is cloned into:
-LEANDIR="s:/PROJECTS/Lean.github"
+#################################################################################################
+# main
+#################################################################################################
+# useful
+toolbox="QuantConnect.Toolbox.exe"
+
+print("ENVIRONMENT:")
+print(f"\tDATDIR={DATADIR}")
+print(f"\tLEANDIR={LEANDIR}\n")
+
+exedir = f"{LEANDIR}/Toolbox/bin/debug"
+if (len(sys.argv)==1) or ("help" in sys.argv[1]):
+    os.system(f"{exedir}/{toolbox} --help")
+    exit(0)
+
+sys.argv.pop(0)
+sargs = " ".join(sys.argv)
+
+# push the configuration file
+launcher_template["data-directory"]=str(Path(DATADIR))
+launcher_template["cache-location"]=str(Path(DATADIR))
+launcher_template[ "data-folder"]=str(Path(DATADIR))
+with open(f"{exedir}/config.json","w") as outfile:
+    json.dump(launcher_template,outfile,indent=4)
+# run the generator
+os.system(f"{exedir}/{toolbox} --app RDG "+sargs)
+

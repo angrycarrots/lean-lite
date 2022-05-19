@@ -1,0 +1,12 @@
+{
+    "algorithm-language": "Python",
+    "parameters": {
+        "TAKE_PROFIT": "0.5",
+        "MAX_DELTA_PUT": "0.4",
+        "MAX_DELTA_CALL": "0.4",
+        "ticker": "RVW"
+    },
+    "description": "exploring",
+    "cloud-id": 11592212,
+    "local-id": 840173305
+}
