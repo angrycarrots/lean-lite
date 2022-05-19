@@ -1,6 +1,7 @@
 # lean-lite
 This is a simple hack to complement QuantConnect Lean (https://github.com/QuantConnect/Lean) and QuantConnect lean-cli (https://github.com/QuantConnect/lean-cli) to:
 - address some of the shortcomings with lean-cli
+    - backtest and generate with the Lean source - not the docker
     - simulated data generation is broken - especially for options
     - processing simulated data does not currently work in the docker
 - create the ability to backtest with the lean source code - no docker
@@ -12,6 +13,8 @@ configuration files (config.json). [Lean is very inconsistent in how it uses con
 that the configuration files reside in the execution directory is just wrong.]
 
 Note: this distribution use Python version 3.9 - not the official QuantConnect version.  It works.
+
+
 
 # Installation
 Requirements
@@ -36,8 +39,8 @@ will not work in linux.
 
 *Note: generally, we will not be using lean-cli. It
 is merely a convenient way to install the necessary python libraries for
-execution in the lean environment. These scripts (lean-lite) is a replacement for 
-lean-cli.*
+execution in the lean environment. These scripts (lean-lite) are a replacement/complement for 
+lean-cli.  You can still use lean-cli with this project!*  
 
 4. Create an environment variable for python (in windows):
     ~~~
@@ -184,9 +187,9 @@ python generate.py --start 20220101 --end 20220501 --symbol-count 1 --security-t
 
 ## Run a backtest
 At this point, we need a project.  You can use *lean cloud pull* (after you *lean login*) to retrieve
-project you have on QuantConnect.com.  Otherwise, use the *demo_project* included with this distribution.
+projects you have on QuantConnect.com.  Otherwise, use the *demo_project* included with this distribution.
 
-With this demo, we will use the options generated in the Generate section above.  Look in the DATADIR/options/usa/minute to get the ticker symbol.
+With this demo, we will use the options generated in the Generate section above.  Look in the DATADIR/options/usa/minute to get the newly generated ticker symbol.
 
 The demo project uses parameters for the ticker.  Edit demo_project/config.json and change the ticker:
 ~~~
@@ -221,12 +224,18 @@ The python class name for this demo_project is OptionWhelAlgorithm. This will ge
 - report-live-portfolio.json - portfolio stats (repeat?)
 - main.py - the code used in this backtest
 
+## Known Issues
+- Does not import Library or auxilary files (anyone know how to do this?).
 
 ## Summary
+Lean is a great platform; however, it seems lean-cli has been neglected.  Perhaps, this
+repository will become obsolete as lean-cli evolves and shortcomings are fixed.
+
 Please:
 - fork and improve
 - report issues
 - send comments / suggestions to athanas@vastscientific.com
+- enjoy
 
 Fini.
 
