@@ -61,17 +61,29 @@ see https://github.com/QuantConnect/Lean/tree/master/Algorithm.Python
     cd Lean
     dotnet build QuantConnect.Lean.sln
     ~~~
+    Optionally, create an optimized build of Lean using:
+    ~~~
+    cd Lean
+    dotnet build -c Release QuantConnect.Lean.sln
+    ~~~
 7. Pick a directory to put generated data.  lean-cli typically puts this in
 the *data* subdirectory in a lean-cli project folder (after running *lean init*).
 
-8. Set the configuration in config.py:
+8. Set the configuration in *config.py*:
 
     ~~~
     # the directory where the generated data resides
     DATADIR="s:/data"
 
     # the directory where lean is cloned into:
-    LEANDIR="s:/Lean"
+    LEANDIR="s:/PROJECTS/Lean.github"
+
+    # use the Release optimized build of lean.
+    # a release build of Lean must be constructed by:
+    #   cd Lean
+    #   dotnet build -c Release QuantConnect.Lean.sln
+    # values: "Debug" or "Release"
+    LEANOPTIMIZE="Debug"
     ~~~
 
 ## Generate data (options)

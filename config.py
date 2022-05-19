@@ -37,3 +37,10 @@ DATADIR="s:/data"
 
 # the directory where lean is cloned into:
 LEANDIR="s:/PROJECTS/Lean.github"
+
+# use the Release optimized build of lean.
+# a release build of Lean must be constructed by:
+#   cd Lean
+#   dotnet build -c Release QuantConnect.Lean.sln
+# values: "Debug" or "Release"
+LEANOPTIMIZE="Release"

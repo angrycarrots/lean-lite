@@ -36,7 +36,6 @@ import os
 import json
 import argparse
 from datetime import datetime
-import re
 import shutil
 from pathlib import Path
 from lib.lean_configurations import *
@@ -84,7 +83,7 @@ configfile = str(Path(basedir+"/config.json"))
 
 # create results folder
 btfolder = str(Path(basedir+"/backtests"))
-exedir = f"{LEANDIR}/Launcher/bin/debug"
+exedir = f"{LEANDIR}/Launcher/bin/{LEANOPTIMIZE}"
 if not os.path.exists(btfolder):
   os.mkdir(btfolder)
 # prepare a report folder
@@ -129,7 +128,7 @@ report_template["report-destination"]=str(Path(f"{btfldr}/report.html"))
 report_template["live-data-source-file"]=str(Path(f"{btfldr}/{resultfn}"))
 report_template["data-folder"]=str(Path(DATADIR))
 
-exedir = f"{LEANDIR}/Report/bin/debug"
+exedir = f"{LEANDIR}/Report/bin/{LEANOPTIMIZE}"
 # lean requires the configuration file in the exe dir. yep.
 config = f"{exedir}/config.json"
 with open(config,"w") as f:

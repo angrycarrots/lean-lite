@@ -34,10 +34,6 @@
 
 import os
 import json
-import argparse
-from datetime import datetime
-import re
-import shutil
 from pathlib import Path
 from lib.lean_configurations import *
 from config import *
@@ -53,7 +49,7 @@ print("ENVIRONMENT:")
 print(f"\tDATDIR={DATADIR}")
 print(f"\tLEANDIR={LEANDIR}\n")
 
-exedir = f"{LEANDIR}/Toolbox/bin/debug"
+exedir = f"{LEANDIR}/Toolbox/bin/{LEANOPTIMIZE}"
 if (len(sys.argv)==1) or ("help" in sys.argv[1]):
     os.system(f"{exedir}/{toolbox} --help")
     exit(0)
