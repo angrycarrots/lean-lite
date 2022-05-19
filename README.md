@@ -182,7 +182,7 @@ The ToolBox is a wrapper of >15 tools. Each require a different set of parameter
 
 To generate options for one ticker with 10 strikes:
 ~~~
-python generate.py --start 20220101 --end 20220501 --symbol-count 1 --security-type Option --resolution Minute --chain-symbol-count 1
+python generate.py --start 20220101 --end 20220501 --symbol-count 1 --security-type Option --resolution Minute --chain-symbol-count 10
 ~~~
 
 ## Run a backtest
