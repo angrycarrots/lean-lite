@@ -1,0 +1,170 @@
+2022-05-19T16:55:46.2120540Z TRACE:: Config.Get(): Configuration key not found. Key: version-id - Using default value: 
+2022-05-19T16:55:46.2134944Z TRACE:: Engine.Main(): LEAN ALGORITHMIC TRADING ENGINE v2.5.0.0 Mode: DEBUG (64bit) Host: OBELISK
+2022-05-19T16:55:46.2215569Z TRACE:: Engine.Main(): Started 9:55 AM
+2022-05-19T16:55:46.2259401Z TRACE:: Config.Get(): Configuration key not found. Key: lean-manager-type - Using default value: LocalLeanManager
+2022-05-19T16:55:46.2471537Z TRACE:: JobQueue.NextJob(): Selected S:\PROJECTS\lean-lite\demo_project\main.py
+2022-05-19T16:55:46.2617096Z TRACE:: Config.GetValue(): scheduled-event-leaky-bucket-capacity - Using default value: 120
+2022-05-19T16:55:46.2619801Z TRACE:: Config.GetValue(): scheduled-event-leaky-bucket-time-interval-minutes - Using default value: 1440
+2022-05-19T16:55:46.2637610Z TRACE:: Config.GetValue(): scheduled-event-leaky-bucket-refill-amount - Using default value: 18
+2022-05-19T16:55:46.2640578Z TRACE:: Config.Get(): Configuration key not found. Key: algorithm-id - Using default value: OptionWheelAlgorithm
+2022-05-19T16:55:46.2659327Z TRACE:: Config.GetValue(): job-project-id - Using default value: 0
+2022-05-19T16:55:46.2671236Z TRACE:: Config.Get(): Configuration key not found. Key: data-permission-manager - Using default value: DataPermissionManager
+2022-05-19T16:55:46.2798828Z TRACE:: Config.Get(): Configuration key not found. Key: object-store-root - Using default value: ./storage
+2022-05-19T16:55:46.2823316Z TRACE:: AlgorithmManager.CreateTokenBucket(): Initializing LeakyBucket: Capacity: 120 RefillAmount: 18 TimeInterval: 1440
+2022-05-19T16:55:46.2844397Z TRACE:: Config.GetValue(): algorithm-manager-time-loop-maximum - Using default value: 20
+2022-05-19T16:55:46.2916319Z TRACE:: TextSubscriptionDataSourceReader.SetCacheSize(): Setting cache size to 71582788 items
+2022-05-19T16:55:46.5708478Z TRACE:: Config.GetValue(): algorithm-creation-timeout - Using default value: 90
+2022-05-19T16:55:46.5737203Z TRACE:: PythonInitializer.Initialize(): start...
+2022-05-19T16:55:47.6505309Z TRACE:: PythonInitializer.Initialize(): ended
+2022-05-19T16:55:47.6555624Z TRACE:: AlgorithmPythonWrapper(): Python version 3.9.12 (main, Apr  4 2022, 05:22:27) [MSC v.1916 64 bit (AMD64)]: Importing python module main
+2022-05-19T16:55:50.7456016Z TRACE:: AlgorithmPythonWrapper(): main successfully imported.
+2022-05-19T16:55:50.7594064Z TRACE:: AlgorithmPythonWrapper(): Creating IAlgorithm instance.
+2022-05-19T16:55:50.7764700Z TRACE:: Config.GetValue(): api-data-update-period - Using default value: 1
+2022-05-19T16:55:50.9457283Z TRACE:: Config.GetValue(): mute-python-library-logging - Using default value: True
+2022-05-19T16:55:50.9579635Z TRACE:: LocalObjectStore.Initialize(): Storage Root: s:\PROJECTS\Lean.github\Launcher\bin\debug\storage\QCAlgorithm. StorageFileCount 100. StorageLimitMB 5
+2022-05-19T16:55:50.9737849Z TRACE:: BacktestingSetupHandler.Setup(): Setting up job: UID: 0, PID: 0, Version: 2.5.0.0, Source: WebIDE
+2022-05-19T16:55:50.9771508Z TRACE:: Config.Get(): Configuration key not found. Key: security-data-feeds - Using default value: 
+2022-05-19T16:55:51.1023060Z TRACE:: Config.GetValue(): data-feed-max-work-weight - Using default value: 400
+2022-05-19T16:55:51.1026725Z TRACE:: Config.GetValue(): data-feed-workers-count - Using default value: 8
+2022-05-19T16:55:51.1028901Z TRACE:: WeightedWorkScheduler(): will use 8 workers and MaxWorkWeight is 400
+2022-05-19T16:55:51.1198160Z TRACE:: BaseSetupHandler.SetupCurrencyConversions():
+Symbol      Quantity    Conversion = Value in USD
+USD: $      100000.00 @       1.00 = $100000.0
+-------------------------------------------------
+CashBook Total Value:                $100000.0
+
+2022-05-19T16:55:51.1230435Z TRACE:: SetUp Backtesting: User: 0 ProjectId: 0 AlgoId: OptionWheelAlgorithm
+2022-05-19T16:55:51.1244772Z TRACE:: Dates: Start: 01/01/2022 End: 05/01/2022 Cash: ¤100,000.00 MaximumRuntime: 100.00:00:00 MaxOrders: 2147483647
+2022-05-19T16:55:51.1269184Z TRACE:: BacktestingResultHandler(): Sample Period Set: 43.56
+2022-05-19T16:55:51.1283072Z TRACE:: Time.TradeableDates(): Security Count: 2
+2022-05-19T16:55:51.1321402Z TRACE:: Config.GetValue(): forward-console-messages - Using default value: True
+2022-05-19T16:55:51.1343760Z TRACE:: JOB HANDLERS: 
+2022-05-19T16:55:51.1346149Z TRACE::          DataFeed:     QuantConnect.Lean.Engine.DataFeeds.FileSystemDataFeed
+2022-05-19T16:55:51.1348099Z TRACE::          Setup:        QuantConnect.Lean.Engine.Setup.BacktestingSetupHandler
+2022-05-19T16:55:51.1350229Z TRACE::          RealTime:     QuantConnect.Lean.Engine.RealTime.BacktestingRealTimeHandler
+2022-05-19T16:55:51.1352240Z TRACE::          Results:      QuantConnect.Lean.Engine.Results.BacktestingResultHandler
+2022-05-19T16:55:51.1354375Z TRACE::          Transactions: QuantConnect.Lean.Engine.TransactionHandlers.BacktestingTransactionHandler
+2022-05-19T16:55:51.1356307Z TRACE::          Alpha:        QuantConnect.Lean.Engine.Alphas.DefaultAlphaHandler
+2022-05-19T16:55:51.1358194Z TRACE::          ObjectStore:  QuantConnect.Lean.Engine.Storage.LocalObjectStore
+2022-05-19T16:55:51.1360313Z TRACE::          History Provider:     QuantConnect.Lean.Engine.HistoricalData.HistoryProviderManager
+2022-05-19T16:55:51.1457567Z TRACE:: Config.GetValue(): show-missing-data-logs - Using default value: False
+2022-05-19T16:55:51.1735740Z TRACE:: Event Name "Daily Sampling", scheduled to run at 1/1/2022 5:00:00 AM (UTC)...
+2022-05-19T16:55:51.1738814Z TRACE:: AlgorithmManager.Run(): Begin DataStream - Start: 1/1/2022 12:00:00 AM Stop: 5/1/2022 11:59:59 PM
+2022-05-19T16:55:51.1896956Z TRACE:: Debug: Launching analysis for OptionWheelAlgorithm with LEAN Engine v2.5.0.0
+2022-05-19T16:55:51.1920134Z TRACE:: AlgorithmManager.Stream(): WarmupHistoryRequest: RVW: Start: 11/2/2021 4:00:00 AM End: 1/1/2022 5:00:00 AM Resolution: Minute
+2022-05-19T16:55:51.2240191Z TRACE:: AlgorithmManager.Stream(): Finished warmup
+2022-05-19T16:55:51.2756687Z TRACE:: UniverseSelection.AddPendingInternalDataFeeds(): Adding internal benchmark data feed RVW,#0,RVW,Hour,TradeBar,Trade,Adjusted,OpenInterest,Internal
+2022-05-19T16:55:51.3421485Z TRACE:: Debug: Warning: The following securities were set to raw price normalization mode to work with options: RVW...
+Algorithm finished warming up.
+2022-05-19T16:55:51.3947593Z TRACE:: Debug: TradePutOption RVW: 0 @ 0 [] 100000.0
+2022-05-19T16:55:54.1683437Z TRACE:: Log: (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[0.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 14:50:00 OrderID: 1 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: -2 IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 14:50:00 OrderID: 1 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: -2 FillQuantity: -2 FillPrice: 5.8767 USD OrderFee: 1 USD IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 14:50:00 OrderID: 2 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: 2 LimitPrice: 2.94 IsAssignment: False
+2022-05-19T16:55:54.3673018Z TRACE:: Debug: TradePutOption RVW: 0 @ 0 [] 100585.34
+2022-05-19T16:55:54.4042028Z TRACE:: Log: (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 18:42:00 OrderID: 2 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: 2 FillQuantity: 2 FillPrice: 2.94 USD LimitPrice: 2.94 OrderFee: 1 USD IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 18:42:00 OrderID: 3 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: -2 IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 18:42:00 OrderID: 3 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: -2 FillQuantity: -2 FillPrice: 3.0064 USD OrderFee: 1 USD IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 18:42:00 OrderID: 4 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: 2 LimitPrice: 1.5 IsAssignment: False
+2022-05-19T16:55:54.5059652Z TRACE:: Debug: TradePutOption RVW: 0 @ 0 [] 100884.62
+2022-05-19T16:55:54.5074202Z TRACE:: Log: (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/18/2022 14:31:00 OrderID: 4 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: 2 FillQuantity: 2 FillPrice: 1.5 USD LimitPrice: 1.5 OrderFee: 1 USD IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/18/2022 14:31:00 OrderID: 5 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: -2 IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/18/2022 14:31:00 OrderID: 5 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: -2 FillQuantity: -2 FillPrice: 0.9 USD OrderFee: 1 USD IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/18/2022 14:31:00 OrderID: 6 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: 2 LimitPrice: 0.45 IsAssignment: False
+2022-05-19T16:55:54.9139496Z TRACE:: Debug: TradePutOption RVW: 0 @ 0 [] 100972.62
+2022-05-19T16:55:54.9158446Z TRACE:: Log: (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/24/2022 14:31:00 OrderID: 6 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: 2 FillQuantity: 2 FillPrice: 0.45 USD LimitPrice: 0.45 OrderFee: 1 USD IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/24/2022 14:31:00 OrderID: 7 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: -2 IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/24/2022 14:31:00 OrderID: 7 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: -2 FillQuantity: -2 FillPrice: 0.21 USD OrderFee: 1 USD IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/24/2022 14:31:00 OrderID: 8 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: 2 LimitPrice: 0.1 IsAssignment: False
+2022-05-19T16:55:54.9749551Z TRACE:: BacktestingBrokerage.ProcessDelistings(): Delisting Warning: RVW   220225C00125000, UtcTime: 2/25/2022 5:00:00 AM, DelistingTime: 2/25/2022 12:00:00 AM
+2022-05-19T16:55:54.9752014Z TRACE:: BacktestingBrokerage.ProcessDelistings(): Delisting Warning: RVW   220225P00125000, UtcTime: 2/25/2022 5:00:00 AM, DelistingTime: 2/25/2022 12:00:00 AM
+2022-05-19T16:55:55.0750306Z TRACE:: BacktestingBrokerage.ProcessDelistings(): Delisting Delisted: RVW   220225C00125000, UtcTime: 2/26/2022 5:00:00 AM, DelistingTime: 2/26/2022 12:00:00 AM
+2022-05-19T16:55:55.0785722Z TRACE:: BacktestingBrokerage.ProcessDelistings(): Delisting Delisted: RVW   220225P00125000, UtcTime: 2/26/2022 5:00:00 AM, DelistingTime: 2/26/2022 12:00:00 AM
+2022-05-19T16:55:55.0788313Z TRACE:: BrokerageTransactionHandler.HandleOptionNotification(): UtcTime: 2/26/2022 5:00:00 AM clearing position for expired option holding: Symbol: RVW   220225P00125000, Holdings: -2
+2022-05-19T16:55:55.0861034Z TRACE:: AlgorithmManager.Run(): 8: OrderId: 8 (BrokerId: 8) CancelPending Limit order for 2 units of RVW   220225P00125000: Limit Price: ¤0.10 at limit 0.1 Request Count: 2 Response Count: 2
+2022-05-19T16:55:55.1199375Z TRACE:: Debug: TradePutOption RVW: 0 @ 0 [] 101013.62
+2022-05-19T16:55:55.1212395Z TRACE:: Log: (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/26/2022 05:00:00 OrderID: 9 EventID: 1 Symbol: RVW   220225P00125000 Status: Filled Quantity: 2 FillQuantity: 2 FillPrice: 0  Message: OTM IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/26/2022 05:00:00 OrderID: 8 EventID: 2 Symbol: RVW   220225P00125000 Status: CancelPending Quantity: 2 LimitPrice: 0.1 IsAssignment: False
+(OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+OnOrderEvent RVW: 0 @ 0 Time: 02/26/2022 05:00:00 OrderID: 8 EventID: 3 Symbol: RVW   220225P00125000 Status: Canceled Quantity: 2 LimitPrice: 0.1 IsAssignment: False
+2022-05-19T16:55:58.0412194Z TRACE:: Synchronizer.GetEnumerator(): Exited thread.
+2022-05-19T16:55:58.0416896Z TRACE:: AlgorithmManager.Run(): Firing On End Of Algorithm...
+2022-05-19T16:55:58.0436992Z TRACE:: Engine.Run(): Exiting Algorithm Manager
+2022-05-19T16:55:58.0472510Z TRACE:: FileSystemDataFeed.Exit(): Start. Setting cancellation token...
+2022-05-19T16:55:58.0481877Z TRACE:: FileSystemDataFeed.Exit(): Exit Finished.
+2022-05-19T16:55:58.0485034Z TRACE:: DefaultAlphaHandler.Exit(): Exiting...
+2022-05-19T16:55:58.0522627Z TRACE:: DefaultAlphaHandler.Exit(): Ended
+2022-05-19T16:55:58.0527266Z TRACE:: BacktestingResultHandler.Exit(): starting...
+2022-05-19T16:55:58.0530075Z TRACE:: BacktestingResultHandler.Exit(): Saving logs...
+2022-05-19T16:55:58.0545298Z TRACE:: Debug: Algorithm Id:(OptionWheelAlgorithm) completed in 6.91 seconds at 20k data points per second. Processing total of 137,197 data points.
+2022-05-19T16:55:58.0547158Z TRACE:: StopSafely(): waiting for 'Result Thread' thread to stop...
+2022-05-19T16:55:58.0549174Z TRACE:: Debug: Your log was successfully created and can be retrieved from: S:\PROJECTS\lean-lite\demo_project\backtests\2022-05-19_09-55-45\OptionWheelAlgorithm-log.txt
+2022-05-19T16:55:58.0551100Z TRACE:: BacktestingResultHandler.Run(): Ending Thread...
+2022-05-19T16:55:58.1538992Z TRACE:: 
+STATISTICS:: Total Trades 8
+STATISTICS:: Average Win 0.25%
+STATISTICS:: Average Loss 0%
+STATISTICS:: Compounding Annual Return 3.152%
+STATISTICS:: Drawdown 0.800%
+STATISTICS:: Expectancy 0
+STATISTICS:: Net Profit 1.014%
+STATISTICS:: Sharpe Ratio 1.46
+STATISTICS:: Probabilistic Sharpe Ratio 63.606%
+STATISTICS:: Loss Rate 0%
+STATISTICS:: Win Rate 100%
+STATISTICS:: Profit-Loss Ratio 0
+STATISTICS:: Alpha 0
+STATISTICS:: Beta 0
+STATISTICS:: Annual Standard Deviation 0.015
+STATISTICS:: Annual Variance 0
+STATISTICS:: Information Ratio 1.46
+STATISTICS:: Tracking Error 0.015
+STATISTICS:: Treynor Ratio 0
+STATISTICS:: Total Fees $7.00
+STATISTICS:: Estimated Strategy Capacity $600000.00
+STATISTICS:: Lowest Capacity Asset RVW 31VFOSWFVHW12|RVW 2T
+STATISTICS:: Fitness Score 0
+STATISTICS:: Kelly Criterion Estimate 0
+STATISTICS:: Kelly Criterion Probability Value 0
+STATISTICS:: Sortino Ratio 1.022
+STATISTICS:: Return Over Maximum Drawdown 6.316
+STATISTICS:: Portfolio Turnover 0
+STATISTICS:: Total Insights Generated 0
+STATISTICS:: Total Insights Closed 0
+STATISTICS:: Total Insights Analysis Completed 0
+STATISTICS:: Long Insight Count 0
+STATISTICS:: Short Insight Count 0
+STATISTICS:: Long/Short Ratio 100%
+STATISTICS:: Estimated Monthly Alpha Value $0
+STATISTICS:: Total Accumulated Estimated Alpha Value $0
+STATISTICS:: Mean Population Estimated Insight Value $0
+STATISTICS:: Mean Population Direction 0%
+STATISTICS:: Mean Population Magnitude 0%
+STATISTICS:: Rolling Averaged Population Direction 0%
+STATISTICS:: Rolling Averaged Population Magnitude 0%
+STATISTICS:: OrderListHash faa7748ec192732e97aefa7113a4f69d
+2022-05-19T16:55:58.1541236Z TRACE:: BacktestingResultHandler.SendAnalysisResult(): Processed final packet
+2022-05-19T16:55:58.1549067Z TRACE:: Engine.Run(): Disconnecting from brokerage...
+2022-05-19T16:55:58.1552414Z TRACE:: Engine.Run(): Disposing of setup handler...
+2022-05-19T16:55:58.1560002Z TRACE:: Engine.Main(): Analysis Completed and Results Posted.
+2022-05-19T16:55:58.1570769Z TRACE:: Engine.Main(): Packet removed from queue: OptionWheelAlgorithm
+2022-05-19T16:55:58.1574459Z TRACE:: LeanEngineSystemHandlers.Dispose(): start...
+2022-05-19T16:55:58.1578290Z TRACE:: LeanEngineSystemHandlers.Dispose(): Disposed of system handlers.
+2022-05-19T16:55:58.1581225Z TRACE:: LeanEngineAlgorithmHandlers.Dispose(): start...
+2022-05-19T16:55:58.1593756Z TRACE:: LeanEngineAlgorithmHandlers.Dispose(): Disposed of algorithm handlers.

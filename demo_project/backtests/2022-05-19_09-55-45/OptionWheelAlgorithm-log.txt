@@ -1,0 +1,45 @@
+2022-01-01 00:00:00 Launching analysis for OptionWheelAlgorithm with LEAN Engine v2.5.0.0
+2022-01-01 00:00:00 Warning: The following securities were set to raw price normalization mode to work with options: RVW...
+2022-01-01 00:00:00 Algorithm finished warming up.
+2022-01-03 09:31:00 TradePutOption RVW: 0 @ 0 [] 100000.0
+2022-02-16 09:50:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[0.0];
+2022-02-16 09:50:00 OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 14:50:00 OrderID: 1 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: -2 IsAssignment: False
+2022-02-16 09:50:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+2022-02-16 09:50:00 OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 14:50:00 OrderID: 1 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: -2 FillQuantity: -2 FillPrice: 5.8767 USD OrderFee: 1 USD IsAssignment: False
+2022-02-16 09:50:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+2022-02-16 09:50:00 OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 14:50:00 OrderID: 2 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: 2 LimitPrice: 2.94 IsAssignment: False
+2022-02-16 13:42:00 TradePutOption RVW: 0 @ 0 [] 100585.34
+2022-02-16 13:42:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+2022-02-16 13:42:00 OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 18:42:00 OrderID: 2 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: 2 FillQuantity: 2 FillPrice: 2.94 USD LimitPrice: 2.94 OrderFee: 1 USD IsAssignment: False
+2022-02-16 13:42:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+2022-02-16 13:42:00 OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 18:42:00 OrderID: 3 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: -2 IsAssignment: False
+2022-02-16 13:42:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+2022-02-16 13:42:00 OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 18:42:00 OrderID: 3 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: -2 FillQuantity: -2 FillPrice: 3.0064 USD OrderFee: 1 USD IsAssignment: False
+2022-02-16 13:42:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+2022-02-16 13:42:00 OnOrderEvent RVW: 0 @ 0 Time: 02/16/2022 18:42:00 OrderID: 4 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: 2 LimitPrice: 1.5 IsAssignment: False
+2022-02-18 09:31:00 TradePutOption RVW: 0 @ 0 [] 100884.62
+2022-02-18 09:31:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+2022-02-18 09:31:00 OnOrderEvent RVW: 0 @ 0 Time: 02/18/2022 14:31:00 OrderID: 4 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: 2 FillQuantity: 2 FillPrice: 1.5 USD LimitPrice: 1.5 OrderFee: 1 USD IsAssignment: False
+2022-02-18 09:31:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+2022-02-18 09:31:00 OnOrderEvent RVW: 0 @ 0 Time: 02/18/2022 14:31:00 OrderID: 5 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: -2 IsAssignment: False
+2022-02-18 09:31:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+2022-02-18 09:31:00 OnOrderEvent RVW: 0 @ 0 Time: 02/18/2022 14:31:00 OrderID: 5 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: -2 FillQuantity: -2 FillPrice: 0.9 USD OrderFee: 1 USD IsAssignment: False
+2022-02-18 09:31:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+2022-02-18 09:31:00 OnOrderEvent RVW: 0 @ 0 Time: 02/18/2022 14:31:00 OrderID: 6 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: 2 LimitPrice: 0.45 IsAssignment: False
+2022-02-24 09:31:00 TradePutOption RVW: 0 @ 0 [] 100972.62
+2022-02-24 09:31:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+2022-02-24 09:31:00 OnOrderEvent RVW: 0 @ 0 Time: 02/24/2022 14:31:00 OrderID: 6 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: 2 FillQuantity: 2 FillPrice: 0.45 USD LimitPrice: 0.45 OrderFee: 1 USD IsAssignment: False
+2022-02-24 09:31:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+2022-02-24 09:31:00 OnOrderEvent RVW: 0 @ 0 Time: 02/24/2022 14:31:00 OrderID: 7 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: -2 IsAssignment: False
+2022-02-24 09:31:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+2022-02-24 09:31:00 OnOrderEvent RVW: 0 @ 0 Time: 02/24/2022 14:31:00 OrderID: 7 EventID: 2 Symbol: RVW   220225P00125000 Status: Filled Quantity: -2 FillQuantity: -2 FillPrice: 0.21 USD OrderFee: 1 USD IsAssignment: False
+2022-02-24 09:31:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-2.0];
+2022-02-24 09:31:00 OnOrderEvent RVW: 0 @ 0 Time: 02/24/2022 14:31:00 OrderID: 8 EventID: 1 Symbol: RVW   220225P00125000 Status: Submitted Quantity: 2 LimitPrice: 0.1 IsAssignment: False
+2022-02-26 00:00:00 TradePutOption RVW: 0 @ 0 [] 101013.62
+2022-02-26 00:00:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+2022-02-26 00:00:00 OnOrderEvent RVW: 0 @ 0 Time: 02/26/2022 05:00:00 OrderID: 9 EventID: 1 Symbol: RVW   220225P00125000 Status: Filled Quantity: 2 FillQuantity: 2 FillPrice: 0  Message: OTM IsAssignment: False
+2022-02-26 00:00:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+2022-02-26 00:00:00 OnOrderEvent RVW: 0 @ 0 Time: 02/26/2022 05:00:00 OrderID: 8 EventID: 2 Symbol: RVW   220225P00125000 Status: CancelPending Quantity: 2 LimitPrice: 0.1 IsAssignment: False
+2022-02-26 00:00:00 (OnOrderEvent)?RVW[0.0];RVW[0.0];RVW   220225C00125000[0.0];RVW   220225P00125000[-0.0];
+2022-02-26 00:00:00 OnOrderEvent RVW: 0 @ 0 Time: 02/26/2022 05:00:00 OrderID: 8 EventID: 3 Symbol: RVW   220225P00125000 Status: Canceled Quantity: 2 LimitPrice: 0.1 IsAssignment: False
+2022-04-29 16:00:00 Algorithm Id:(OptionWheelAlgorithm) completed in 6.91 seconds at 20k data points per second. Processing total of 137,197 data points.
