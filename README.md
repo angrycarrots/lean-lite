@@ -90,7 +90,23 @@ the *data* subdirectory in a lean-cli project folder (after running *lean init*)
     LEANOPTIMIZE="Debug"
     ~~~
 
-## Generate data (options)
+## Yahoo Stock Data Downloader
+Lean ToolBox has a utility for downloading data from yahoo.  This feature is hidden in lean-cli.  
+
+The _yahoo_downloader.py script encapsulates the downloading process and stores the data in lean
+data format.  You must follow the installation steps above.
+
+For example, to run the data downloader:
+
+~~~
+python yahoo_downloader.py --tickers AAPL,MSFT,TSLA --fromdate 2018-01-01
+~~~
+For help with options:
+~~~
+python yahoo_downloader --help
+~~~
+
+## Random Options Data Generation
 Option generation with lean-cli is *broken* [on purpose?]- especially, if you want options data. However,
 lean works.
 
@@ -240,22 +256,6 @@ The python class name for this demo_project is OptionWhelAlgorithm. This will ge
 - report-live-portfolio.json - portfolio stats (repeat?)
 - main.py - the code used in this backtest
 
-
-## Data Downloader
-Lean ToolBox has a utility for downloading data from yahoo.  This feature is hidden in lean-cli.  
-
-The _yahoo_downloader.py script encapsulates the downloading process and stores the data in lean
-data format.  You must follow the installation steps above.
-
-For example, to run the data downloader:
-
-~~~
-python yahoo_downloader.py --tickers AAPL,MSFT,TSLA --fromdate 2018-01-01
-~~~
-For help with options:
-~~~
-python yahoo_downloader --help
-~~~
 
 
 ## Known Issues
