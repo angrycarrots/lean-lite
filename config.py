@@ -43,4 +43,8 @@ LEANDIR="s:/PROJECTS/Lean.github"
 #   cd Lean
 #   dotnet build -c Release QuantConnect.Lean.sln
 # values: "Debug" or "Release"
-LEANOPTIMIZE="Release"
+LEANOPTIMIZE="Debug"
+
+#
+TRADIER_ACCOUNT=""
+TRADIER_SECRET=""

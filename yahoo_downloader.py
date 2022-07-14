@@ -1,7 +1,7 @@
 
 #####################################################################################
 #
-# QuantConnect Lean hack to enable backtesting against an installed version of Lean
+# QuantConnect Lean hack to enable processing against an installed version of Lean
 # instead of docker.  
 #
 # The motivation: 1) lean-cli option data generation is broken, 2) generated data
@@ -38,26 +38,26 @@ from pathlib import Path
 from lib.lean_configurations import *
 from config import *
 import sys
+import argparse
+import datetime
 
 #################################################################################################
-# main
+# yahoo downloader fetches
 #################################################################################################
 # useful
 toolbox="QuantConnect.Toolbox.exe"
 
+
+parser = argparse.ArgumentParser("yahoo_downloader.py fetches daily data from yahoo for local lean backtesting.\n")
+parser.add_argument('--tickers',type=str,required=True,help="Comma separated list of stock tickers")
+parser.add_argument('--fromdate',type=str,default='2020-01-01',help="Example 2020-01-01")
+args = parser.parse_args()
+
 print("ENVIRONMENT:")
 print(f"\tDATDIR={DATADIR}")
-print(f"\tLEANDIR={LEANDIR}\n")
+print(f"\tLEANDIR={LEANDIR}")
 print(f"\tLEANOPTIMIZE={LEANOPTIMIZE}\n")
-
-
 exedir = f"{LEANDIR}/Toolbox/bin/{LEANOPTIMIZE}"
-if (len(sys.argv)==1) or ("help" in sys.argv[1]):
-    os.system(f"{exedir}/{toolbox} --help")
-    exit(0)
-
-sys.argv.pop(0)
-sargs = " ".join(sys.argv)
 
 # push the configuration file
 launcher_template["data-directory"]=str(Path(DATADIR))
@@ -66,5 +66,7 @@ launcher_template[ "data-folder"]=str(Path(DATADIR))
 with open(f"{exedir}/config.json","w") as outfile:
     json.dump(launcher_template,outfile,indent=4)
 # run the generator
-os.system(f"{exedir}/{toolbox}  "+sargs)
 
+dt = datetime.datetime.strptime(args.fromdate,"%Y-%m-%d")+datetime.timedelta(hours=23) #EOD
+fromts = dt.strftime("%Y%m%d-%H:%M:%S")
+os.system(f"{exedir}/{toolbox}  --app YDL --tickers {args.tickers} --from-date {fromts} --resolution Daily")

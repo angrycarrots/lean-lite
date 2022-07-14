@@ -74,6 +74,7 @@ def getparams(fn):
 print("ENVIRONMENT:")
 print(f"\tDATDIR={DATADIR}")
 print(f"\tLEANDIR={LEANDIR}\n")
+print(f"\tLEANOPTIMIZE={LEANOPTIMIZE}\n")
 
 # prepare a backtest
 wdir = str(Path(args.main).resolve())

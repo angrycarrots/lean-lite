@@ -1,18 +1,21 @@
 # lean-lite
 This is a simple hack to complement QuantConnect Lean (https://github.com/QuantConnect/Lean) and QuantConnect lean-cli (https://github.com/QuantConnect/lean-cli) to:
 - address some of the shortcomings with lean-cli
-    - backtest and generate with the Lean source - not the docker
     - simulated data generation is broken - especially for options
     - processing simulated data does not currently work in the docker
 - create the ability to backtest with the lean source code - no docker
     - great for running lean in debug which is useful if you want to understand the framework
     - running with lean source is easy - perhaps even faster than docker (lean-cli)
+- make data available for local lean processing
+
 
 As of this release, there is no need to change/modify/hack the lean source code - except for some 
 configuration files (config.json). [Lean is very inconsistent in how it uses configuration files.  Furthermore, the requirement
 that the configuration files reside in the execution directory is just wrong.]
 
-Note: this distribution use Python version 3.9 - not the official QuantConnect version.  It works.
+Note: this distribution use **Python version 3.9** - not the official QuantConnect version.  Hey, it works.
+
+
 
 
 
@@ -47,7 +50,8 @@ lean-cli.  You can still use lean-cli with this project!*
     set PYTHONNET_PYDLL=ANACONDA\envs\lean\python39.dll
     ~~~
 where *ANACONDA* is the directory where anaconda is installed.  For more information about this
-see https://github.com/QuantConnect/Lean/tree/master/Algorithm.Python
+see https://github.com/QuantConnect/Lean/tree/master/Algorithm.Python.  This setting needs to persist 
+may be best set at the system environment variables panel.
 
 4. Clone lean into a different directory, i.e. projects:
     ~~~
@@ -235,6 +239,24 @@ The python class name for this demo_project is OptionWhelAlgorithm. This will ge
 - report-backtesting-portfolio.json - portfolio stats
 - report-live-portfolio.json - portfolio stats (repeat?)
 - main.py - the code used in this backtest
+
+
+## Data Downloader
+Lean ToolBox has a utility for downloading data from yahoo.  This feature is hidden in lean-cli.  
+
+The _yahoo_downloader.py script encapsulates the downloading process and stores the data in lean
+data format.  You must follow the installation steps above.
+
+For example, to run the data downloader:
+
+~~~
+python yahoo_downloader.py --tickers AAPL,MSFT,TSLA --fromdate 2018-01-01
+~~~
+For help with options:
+~~~
+python yahoo_downloader --help
+~~~
+
 
 ## Known Issues
 - Does not import Library or auxilary files (anyone know how to do this?).
